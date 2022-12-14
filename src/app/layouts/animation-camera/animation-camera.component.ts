@@ -152,7 +152,7 @@ export class AnimationCameraComponent implements OnInit, AfterViewInit, OnDestro
 
   uploadImageNew(file) {
     const fileName = new Date().getTime();
-    const filePath = 'http://localhost:8000/' + fileName + '.png';
+    const filePath = 'http://192.168.0.100:8000/' + fileName + '.png';
     this.loading = 30;
 
     var formData:FormData = new FormData();
@@ -160,7 +160,7 @@ export class AnimationCameraComponent implements OnInit, AfterViewInit, OnDestro
     
     let headers: HttpHeaders = new HttpHeaders();
     // headers = headers.append("Content-Type", "multipart/form-data");
-    this.http.post('http://localhost:8000/upload', formData).subscribe((res: any) => {
+    this.http.post('http://192.168.0.100:8000/upload', formData).subscribe((res: any) => {
       this.preview_url = filePath;
       this.loading = 100;
       this.capturing = false;
