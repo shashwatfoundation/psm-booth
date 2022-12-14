@@ -60,7 +60,18 @@
             </div>
         </div>
         <div class="qrcode-container app-fade" id="qrcode-container" *ngIf="preview_url">
-            <qrcode [qrdata]="preview_url" [width]="340" [errorCorrectionLevel]="'M'"></qrcode>
+            <div class="text-center" style="display: inline-block; width: 370px; vertical-align: top; margin-right: 123px;">
+                <img src="./../../../assets/overlays/wifiQr.jpeg" style="width: 340px; margin-bottom: 27.5px;" />
+                <br /> 
+                <h2 style="text-shadow: rgb(0, 0, 0) 1px 0 10px; font-size: 108px; font-weight: 900;" class="mb-0">Step 1</h2>
+            </div>
+            <div class="text-center" style="display: inline-block; width: 370px;">
+                <qrcode style="display: inline-block;" [qrdata]="preview_url" [width]="340" [errorCorrectionLevel]="'M'"></qrcode>
+                <br /> 
+                <h2 style="text-shadow: rgb(0, 0, 0) 1px 0 10px; font-size: 108px; font-weight: 900;" class="mb-0">Step 2</h2>
+            </div>
+            <!-- <img src="./../../../assets/overlays/wifiQr.jpeg" style="width: 340px; vertical-align: top; margin-right: 123px;" />
+            <qrcode style="display: inline-block;" [qrdata]="preview_url" [width]="340" [errorCorrectionLevel]="'M'"></qrcode> -->
         </div>
     </div>
 </div>
