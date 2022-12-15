@@ -134,9 +134,9 @@ export class AnimationCameraComponent implements OnInit, AfterViewInit, OnDestro
     }, 1500);
     html2canvas(videoContainer).then(function (canvas) {
     that.currentCapture = canvas.toDataURL('image/png');
-      this.fileName = new Date().getTime();
+      that.fileName = new Date().getTime();
       canvas.toBlob(blob => {
-        const file = new File([blob], (this.fileName + ".png"));
+        const file = new File([blob], (that.fileName + ".png"));
         // that.currentCapture = file;
         setTimeout(() => {
           // that.uploadImage();
