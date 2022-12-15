@@ -22,6 +22,7 @@ export class AnimationCameraComponent implements OnInit, AfterViewInit, OnDestro
   public captures: Array<any> = [];
 
   currentCapture:any;
+  fileName:any;
 
   preview_url;
 
@@ -133,9 +134,9 @@ export class AnimationCameraComponent implements OnInit, AfterViewInit, OnDestro
     }, 1500);
     html2canvas(videoContainer).then(function (canvas) {
     that.currentCapture = canvas.toDataURL('image/png');
-
+      this.fileName = new Date().getTime();
       canvas.toBlob(blob => {
-        const file = new File([blob], (new Date().getTime() + ".png"));
+        const file = new File([blob], (this.fileName + ".png"));
         // that.currentCapture = file;
         setTimeout(() => {
           // that.uploadImage();
@@ -151,8 +152,7 @@ export class AnimationCameraComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   uploadImageNew(file) {
-    const fileName = new Date().getTime();
-    const filePath = 'http://192.168.0.100:8000/' + fileName + '.png';
+    const filePath = 'http://192.168.0.100:8000/' + this.fileName + '.png';
     this.loading = 30;
 
     var formData:FormData = new FormData();
